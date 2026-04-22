@@ -1,0 +1,23 @@
+{
+  "hello": 0,
+  "yes": 1,
+  "no": 2,
+  "thankyou": 3,
+  "please": 4,
+  "fine": 5,
+  "who": 6,
+  "where": 7,
+  "why": 8,
+  "water": 9,
+  "food": 10,
+  "sleep": 11,
+  "hungry": 12,
+  "thirsty": 13,
+  "sick": 14,
+  "go": 15,
+  "wait": 16,
+  "drink": 17,
+  "read": 18,
+  "talk": 19,
+  "listen": 20
+}
