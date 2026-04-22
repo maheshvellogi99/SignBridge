@@ -1,0 +1,21 @@
+diff --git a/node_modules/@tensorflow/tfjs-react-native/dist/camera/camera_stream.js b/node_modules/@tensorflow/tfjs-react-native/dist/camera/camera_stream.js
+index bbb60b6..7a9ae15 100644
+--- a/node_modules/@tensorflow/tfjs-react-native/dist/camera/camera_stream.js
++++ b/node_modules/@tensorflow/tfjs-react-native/dist/camera/camera_stream.js
+@@ -251,7 +251,7 @@ CameraComponent) {
+                 const { rotation } = this.props;
+                 const width = PixelRatio.getPixelSizeForLayoutSize(cameraLayout.width);
+                 const height = PixelRatio.getPixelSizeForLayoutSize(cameraLayout.height);
+-                const isFrontCamera = this.camera.props.type === Camera.Constants.Type.front;
++                const isFrontCamera = (Camera.Constants && this.camera.props.type === Camera.Constants.Type.front) || this.camera.props.facing === 'front';
+                 const flipHorizontal = Platform.OS === 'ios' && isFrontCamera ? false : true;
+                 renderToGLView(gl, cameraTexture, { width, height }, flipHorizontal, rotation);
+             };
+@@ -310,6 +310,7 @@ CameraComponent) {
+                         zIndex: this.props.style.zIndex
+                             ? parseInt(this.props.style.zIndex, 10) + 10
+                             : 10,
++                        opacity: 0,
+                     },
+                 });
+                 glViewComponent = (<GLView key='camera-with-tensor-gl-view' style={styles.glView} onContextCreate={this.onGLContextCreate} ref={(ref) => (this.glView = ref)}/>);
